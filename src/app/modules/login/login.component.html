@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="assets/login.jpg">
+    </div>
+    <div class="col">
+      <div class="card d-flex align-items-center justify-content-center login-card">
+        <div class="card-body">
+          <h4 class="card-title text-center">Login</h4>
+          <form [formGroup]="loginForm">
+            <div class="form-group mt-3">   
+              <div class="form-floating">
+                <input formControlName="userName" class="form-control" placeholder="Username" />
+                <label>User Name</label>
+              </div>
+            </div> 
+            <div class="form-group mt-3">   
+              <div class="form-floating">
+                <input formControlName="password" class="form-control" placeholder="Password" />
+                <label>Password</label>
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary mt-4" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>   
+    </div>
+  </div>
+</div>
+

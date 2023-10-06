@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "admin",
+      "password": "admin"
+    }
+  ],
+  "students": [
+    {
+      "id": 8,
+      "firstName": "Akanksha",
+      "lastName": "Patil",
+      "gender": "female",
+      "division": "A",
+      "mobile": "1234"
+    },
+    {
+      "id": 9,
+      "firstName": "Pranav",
+      "lastName": "Patil",
+      "gender": "male",
+      "division": "A",
+      "mobile": "12345",
+      "email": "pk@gmail.com"
+    },
+    {
+      "id": 12,
+      "firstName": "sss",
+      "lastName": "as",
+      "gender": "female",
+      "division": "C",
+      "mobile": "sssssssss",
+      "email": "ssssssssss"
+    },
+    {
+      "id": 13,
+      "firstName": "dd",
+      "lastName": "dswe",
+      "gender": "male",
+      "division": "D",
+      "mobile": "ddd",
+      "email": "dd"
+    },
+    {
+      "id": 14,
+      "firstName": "dfffffff",
+      "lastName": "dffff",
+      "gender": "female",
+      "division": "B",
+      "mobile": "d",
+      "email": "d"
+    }
+  ]
+}

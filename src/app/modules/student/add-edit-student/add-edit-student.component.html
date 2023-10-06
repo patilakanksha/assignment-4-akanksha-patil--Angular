@@ -1,0 +1,89 @@
+<div class="modal-header">
+  <h3 class="modal-title pull-left">{{formTitle}} Student</h3>
+  <button class="close pull-right" aria-label="Close" (click)="onClose()">
+    <span aria-hiden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="studentForm">
+    <div class="form-group row mt-3">
+      <div class="form-floating col">
+        <input formControlName="firstName" class="form-control" placeholder="First Name" />
+        <label>First Name</label>
+        <div *ngIf="checkIfControlValid('firstName')">
+          <small class=text-danger *ngIf="checkControlHasError('firstName', 'required')">First Name is required</small>
+          <small class=text-danger *ngIf="checkControlHasError('firstName', 'maxLength')">First name should not exceed 50 character</small>
+          <small class=text-danger *ngIf="checkControlHasError('firstName', 'minLength')">First name should have minimum 2 character</small>
+        </div>
+        </div>
+      <div class="form-floating col">
+        <input formControlName="lastName" class="form-control" placeholder="Last Name" />
+        <label>Last Name</label>
+        <div *ngIf="checkIfControlValid('lastName')">
+          <small class=text-danger *ngIf="checkControlHasError('lastName', 'required')">Last Name is required</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row mt-3">
+      <div class="form-floating col">
+        <input formControlName="mobile" class="form-control" placeholder="Mobile Number" />
+        <label>Mobile Number</label>
+        <div *ngIf="checkIfControlValid('mobile')">
+          <small class=text-danger *ngIf="checkControlHasError('firstName', 'required')">Mobile Number is required</small>
+        </div>
+      </div>
+      <div class="form-floating col">
+        <input formControlName="email" class="form-control" placeholder="Email" />
+        <label>Email</label>
+        <div *ngIf="checkIfControlValid('email')">
+          <small class=text-danger *ngIf="checkControlHasError('email', 'required')">Email is required</small>
+          <small class=text-danger *ngIf="checkControlHasError('email', 'pattern')">Email is invalid</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row mt-2">
+      <div class="col">
+        <label>Gender</label>
+        <div class="row">
+          <div class="form-check col">
+            <input class="form-check-input ms-1" type="radio" value="male" id="male" formControlName="gender">
+            <label class="form-check-label" for="male">
+              Male
+            </label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="radio" value="female" id="female" formControlName="gender">
+            <label class="form-check-label" for="female">
+              Female
+            </label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="radio" value="other" id="other" formControlName="gender">
+            <label class="form-check-label" for="other">
+              Other
+            </label>
+          </div>
+          <div *ngIf="checkIfControlValid('gender')">
+            <small class=text-danger *ngIf="checkControlHasError('gender', 'required')">Gender is required</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label for="division">Division</label>
+        <select id="division" formControlName="division" class="form-control" placeholder="Division">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+        <div *ngIf="checkIfControlValid('division')">
+          <small class=text-danger *ngIf="checkControlHasError('division', 'required')">Division is required</small>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" [disabled]="studentForm.invalid" (click)="save()">Save</button>
+  <button class="btn btn-secondary" (click)="onClose()">Cancel</button>
+</div>
