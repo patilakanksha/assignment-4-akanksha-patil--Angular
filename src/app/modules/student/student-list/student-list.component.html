@@ -1,34 +1,37 @@
-<h1 class="text-center">Students</h1>
-<div class="table-responsive mt-5">
-  <ngx-datatable class="bootstrap no-detail-row" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'"
-    [rows]="students" [count]="totalCount" [limit]="4">
-    <ngx-datatable-column name="First Name" prop="firstName">
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Last Name" prop="lastName">
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Mobile Number" prop="mobile">
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Email" prop="email">
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Gender" prop="gender">
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Division" prop="division">
-    </ngx-datatable-column>
-    <ngx-datatable-column [sortable]="false" [width]="150">
-      <ng-template let-column="column" ngx-datatable-header-template>
-        <div class="text-right me-3">
-          <button title="Add Student" class="btn btn-success btn-sm" (click)="openAddEditStudentModal()">
-            Add
+<div class="students-section">
+  <h1 class="text-center">Students</h1>
+  <div class="table-responsive mt-5">
+    <ngx-datatable class="bootstrap no-detail-row" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'"
+      [rows]="students" [count]="totalCount" [limit]="20">
+      <ngx-datatable-column name="First Name" prop="firstName">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Last Name" prop="lastName">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Mobile Number" prop="mobile">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Email" prop="email">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Gender" prop="gender">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Division" prop="division">
+      </ngx-datatable-column>
+      <ngx-datatable-column [sortable]="false" [width]="150">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <div class="text-right me-3">
+            <button title="Add Student" class="btn btn-success btn-sm" (click)="openAddEditStudentModal()">
+              Add
+            </button>
+          </div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-rowndex="rowIndex" let-id="value" let-row="row">
+          <button title="Edit Student" type="button" class="btn btn-sm btn-primary ms-2"
+            (click)="openAddEditStudentModal(row)">
+            Edit
           </button>
-        </div> 
-     </ng-template>
-      <ng-template ngx-datatable-cell-template let-rowndex="rowIndex" let-id="value" let-row="row">
-        <button title="Edit Student" type="button" class="btn btn-sm btn-primary ms-2" (click)="openAddEditStudentModal(row)">
-          Edit
-        </button>  
-        <button title="Edit Student" type="button" class="btn btn-sm btn-danger ms-2" (click)="openDeleteEmployeeModal(row)">Delete</button>
-      </ng-template> 
-    </ngx-datatable-column>
-
-  </ngx-datatable>
+          <button title="Edit Student" type="button" class="btn btn-sm btn-danger ms-2"
+            (click)="openDeleteEmployeeModal(row)">Delete</button>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
 </div>

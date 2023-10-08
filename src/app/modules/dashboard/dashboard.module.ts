@@ -13,11 +13,13 @@ import { AuthGuard } from "src/app/shared/helper/auth.guard";
 import { AddEditStudentComponent } from "../student/add-edit-student/add-edit-student.component";
 import { DeleteModalComponent } from "src/app/shared/components/delete-modal/delete-modal.component";
 import { HomeComponent } from './home/home.component';
+import { FeaturesComponent } from './features/features.component';
 
 const dashboardRoutes: Routes = [{
   path:'dashboard',
   component: DashboardComponent,
   children: [
+    { path: 'features', component: FeaturesComponent,  canActivate:[AuthGuard]},
     { path: 'home', component: HomeComponent,  canActivate:[AuthGuard]},
   { path: 'students', component: StudentListComponent,  canActivate:[AuthGuard]},
   ], canActivate:[AuthGuard]
@@ -28,7 +30,8 @@ const dashboardRoutes: Routes = [{
     StudentListComponent,
     AddEditStudentComponent,
     DeleteModalComponent,
-    HomeComponent
+    HomeComponent,
+    FeaturesComponent
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),

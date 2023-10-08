@@ -26,9 +26,9 @@ export class AddEditStudentComponent {
   }
 
   public studentForm = new FormGroup({
-    firstName: new FormControl("", [Validators.required, Validators.maxLength(4), Validators.minLength(2)]),
-    lastName: new FormControl("", [Validators.required, Validators.maxLength(100), Validators.minLength(2)]),
-    mobile: new FormControl("", [Validators.required,]),
+    firstName: new FormControl("", [Validators.required, Validators.maxLength(50), Validators.minLength(2), Validators.pattern(/^[A-Za-z]+$/)]),
+    lastName: new FormControl("", [Validators.required, Validators.maxLength(50), Validators.minLength(2), Validators.pattern(/^[A-Za-z]+$/)]),
+    mobile: new FormControl("", [Validators.required, Validators.pattern(/^\d{10}$/)]),
     email: new FormControl("", [Validators.required, Validators.pattern(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i)]),
     gender: new FormControl("", Validators.required,),
     division: new FormControl("", Validators.required,),
@@ -81,12 +81,19 @@ export class AddEditStudentComponent {
   }
 
   public checkIfControlValid(controlName: string): any {
+    // debugger
+    console.log("Control name", controlName ,this.studentForm.get(controlName)?.invalid &&
+    this.studentForm.get(controlName)?.errors &&
+    (this.studentForm.get(controlName)?.dirty || this.studentForm.get(controlName)?.touched))
+
     return this.studentForm.get(controlName)?.invalid &&
-      this.studentForm.get(controlName)?.errors &&
-      (this.studentForm.get(controlName)?.dirty || this.studentForm.get(controlName)?.touched);
+    this.studentForm.get(controlName)?.errors &&
+    (this.studentForm.get(controlName)?.dirty || this.studentForm.get(controlName)?.touched);
   }
 
   public checkControlHasError(controlName: string, error: string): any {
+    // debugger
+    console.log("Control name", controlName ,"Error: ",error,this.studentForm.get(controlName)?.hasError(error))
     return this.studentForm.get(controlName)?.hasError(error)
   }
 }

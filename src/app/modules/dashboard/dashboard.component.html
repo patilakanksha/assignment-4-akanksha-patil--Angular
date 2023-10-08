@@ -1,10 +1,11 @@
+
+<div class="page-wrapper">
 <!-- top navbar -->
 <div class="header">
   <app-header></app-header>
 </div>
 
 <div class="row me-0">
-  <div class="row">
     <div class="col-md-2 sidebar-section">
       <!-- sidebar -->
       <app-sidebar></app-sidebar>
@@ -12,8 +13,10 @@
     <div class="col-md-10 main-content">
       <!-- main-content -->
       <!-- <app-content></app-content> -->
-     
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <app-footer></app-footer>
 </div>
+
+  <app-footer></app-footer>
+
