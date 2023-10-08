@@ -3,7 +3,8 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="../../assets/images/aress-logo.png" alt="Assignment 1"></a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <h5>Welcome {{userName}}</h5>
+        <li><h5>Welcome {{userName}}</h5></li>
+        <li (click)="logout()">Logout</li>
       </ul>
   </div>
 </nav>
